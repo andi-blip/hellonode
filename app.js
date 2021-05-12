@@ -2,8 +2,11 @@ const request = require("postman-request");
 const forecast = require("./utils/forecast.js");
 const geocode = require("./utils/geocode.js");
 const express = require("express");
-const app = express();
+const hbs = require("hbs");
 
+const path = require("path");
+
+const app = express();
 
 const name = process.argv[2];
 if (!name) {
@@ -23,7 +26,8 @@ if (!name) {
   });
 }
 const hbsPath = path.join(__dirname, "../templates/partials");
-app.use(express.static(pathFile));
+const viewsPath = path.join(__dirname, "../templates/views");
+
 app.set("view engine", "hbs");
 app.set("views", viewsPath);
 hbs.registerPartials(hbsPath);

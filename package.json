@@ -1,15 +1,18 @@
 {
-  "name": "weather-app",
+  "name": "web-server",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "postman-request": "*"
+    "express": "^4.16.4",
+    "hbs": "^4.0.1",
+    "postman-request": "*",
+    "request": "^2.88.0"
   }
 }
