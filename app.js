@@ -1,6 +1,9 @@
 const request = require("postman-request");
 const forecast = require("./utils/forecast.js");
 const geocode = require("./utils/geocode.js");
+const express = require("express");
+const app = express();
+
 
 const name = process.argv[2];
 if (!name) {
@@ -19,3 +22,15 @@ if (!name) {
     });
   });
 }
+const hbsPath = path.join(__dirname, "../templates/partials");
+app.use(express.static(pathFile));
+app.set("view engine", "hbs");
+app.set("views", viewsPath);
+hbs.registerPartials(hbsPath);
+
+app.get("", (req, res) => {
+  res.render("index", {
+    name: "Andi",
+    age: 21,
+  });
+});
